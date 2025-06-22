@@ -3,6 +3,8 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import { graphqlHTTP } from 'express-graphql';
 import schema from './schema/schema';
+import { Request, Response } from 'express'; 
+
 
 const app = express();
 const PORT = 4000;
@@ -19,6 +21,11 @@ app.use('/graphql', graphqlHTTP({
 }));
 
 
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/graphql`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server running at http://localhost:${PORT}/graphql`);
+// });
+
+
+export default (req: any, res: any) => {
+  app(req, res);
+};
